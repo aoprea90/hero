@@ -21,6 +21,5 @@ while (BattleManager::$battleNumber) {
     echo $combatants['beast']::getName()." has remain health of ".$combatants['beast']->getHealth()."\n";
     echo "\n";
 
-
     BattleManager::$battleNumber--;
 }

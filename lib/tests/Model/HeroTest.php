@@ -11,15 +11,5 @@ class HeroTest extends TestCase
     {
         $hero = new Hero();
 
-        //$this->assertSame(['min' => 0, 'max' => 0], $hero->getStrength());
-
-        $hero->setStrength(['min' => 10, 'max' => 50]);
-
-        //$hero->getStrength();
-
-        echo $hero->getStrength();
-
-       // $this->assertSame(['min' => 10, 'max' => 50], $hero->getStrength());
-
     }
 }
