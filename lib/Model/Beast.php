@@ -18,9 +18,4 @@ class Beast implements Combatant
     {
         return self::NAME;
     }
-
-    public static function getMagicMethods()
-    {
-        return [];
-    }
 }

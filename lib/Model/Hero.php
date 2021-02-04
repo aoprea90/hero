@@ -17,9 +17,4 @@ class Hero extends MagicSkills implements Combatant
     {
         return self::NAME;
     }
-
-    public static function getMagicMethods()
-    {
-        return [];
-    }
 }

@@ -12,8 +12,6 @@ interface Combatant
 
     public function getMagicShield();
 
-    public static function getMagicMethods();
-
     public function setDamagedHealth($damage);
 
     public function getHealth();
