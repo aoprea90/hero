@@ -2,16 +2,14 @@
 
 namespace Service;
 
-use Model\Beast;
 use Model\Combatant;
-use Model\Hero;
 use Model\MagicSkills;
 
 class StatsLoader
 {
-    private $storage;
+    protected $storage;
 
-    private $data;
+    protected $data;
 
     public function __construct(StatsStorage $storage)
     {
@@ -19,15 +17,18 @@ class StatsLoader
         $this->data = $storage->fetchAll()[0];
     }
 
-    public function createCombatant(): Combatant
-    {
+    public function createCombatant() {
         if ($this->storage->getName() == 'hero') {
-            $combatant = new Hero();
+            $combatant = new HeroStatsLoader($this->storage);
+            return $combatant->createCombatant();
         } else {
-            $combatant = new Beast();
+            $combatant = new BeastStatsLoader($this->storage);
+            return $combatant->createCombatant();
         }
+    }
 
-
+    protected function setMethods(Combatant $combatant) : Combatant
+    {
         foreach ($this->data as $key => $stat) {
             $setMethod = sprintf('set%s', ucfirst($key));
 
